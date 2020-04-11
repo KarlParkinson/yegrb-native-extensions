@@ -9,16 +9,15 @@ VALUE super_add(VALUE self, VALUE num1, VALUE num2);
 VALUE super_loops(VALUE self, VALUE arr1, VALUE arr2, VALUE arr3);
 
 void Init_super() {
-    SuperModule = rb_define_module("Super");
-    SuperClass = rb_define_class_under(SuperModule, "Super", rb_cObject);
-    rb_define_method(SuperClass, "initialize", super_initialize, 0);
-    rb_define_method(SuperClass, "add", super_add, 2);
-    rb_define_method(SuperClass, "arr_mult", super_loops, 3);
+  SuperModule = rb_define_module("Super");
+  SuperClass = rb_define_class_under(SuperModule, "Super", rb_cObject);
+  rb_define_method(SuperClass, "initialize", super_initialize, 0);
+  rb_define_method(SuperClass, "add", super_add, 2);
+  rb_define_method(SuperClass, "arr_mult", super_loops, 3);
 }
 
 VALUE super_initialize(VALUE self) {
-    rb_iv_set(self, "@var", rb_hash_new());
-    return self;
+  return self;
 }
 
 VALUE super_add(VALUE self, VALUE num1, VALUE num2) {
